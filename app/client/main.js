@@ -5,11 +5,12 @@ import './main.html';
 
 Template.hello.events({
 	"submit .command-run": function (event) {
-		var command = event.target.command.value;
-		var parameter = event.target.parameter.value;
-		Meteor.call('command', command,parameter);
-		event.target.command.value = "";
-		event.target.parameter.value = "";
+		var url = event.target.url.value;
+		var id=Random.id();
+	
+		Meteor.call('command', 'mkdir ',id);
+		Meteor.call('command', 'cd ',id);
+		Meteor.call('command', 'wget ',url);
 		return false;
 	}
   });
