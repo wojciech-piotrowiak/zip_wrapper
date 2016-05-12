@@ -7,10 +7,16 @@ Template.hello.events({
 	"submit .command-run": function (event) {
 		var url = event.target.url.value;
 		var id=Random.id();
+
+		var cmd='cd /home/wpiotrowiak;';
+		cmd+='mkdir '+id+';';
+		cmd+='cd '+id+';';
+		cmd+='wget '+url+';';
+		cmd+='cd .. ;';
+		cmd+='zip '+id+' '+id+' ;';
+		cmd+='rm -Rf '+id;
 	
-		Meteor.call('command', 'mkdir ',id);
-		Meteor.call('command', 'cd ',id);
-		Meteor.call('command', 'wget ',url);
+		Meteor.call('action', cmd);
 		return false;
 	}
   });
