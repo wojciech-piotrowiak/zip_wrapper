@@ -9,14 +9,24 @@ Template.hello.events({
 	"keydown input.url": function(event) {
 		if(event.which==38)
 		{
-			counter+=1;
 			var last = commands[commands.length - counter];
+			counter+=1;
+			if(counter>commands.length)
+			{
+				counter=commands.length;
+			}
+			if(last!=undefined)
 			event.target.value=last;
 		}
 		if(event.which==40)
 		{
-			counter-=1;
 			var last = commands[commands.length - counter];
+			counter-=1;
+			if(counter<0)
+			{
+				counter=0;
+		  }
+			if(last!=undefined)
 			event.target.value=last;
 		}
 		if(event.which==13)
@@ -24,7 +34,8 @@ Template.hello.events({
 			counter=0;
 			var command=event.target.value;
 			Meteor.call('action', command,function(error,result){
-			$('#console').val(result.stdout);
+			$('#console').val($('#console').val()+result.stdout);
+			$('#console').val($('#console').val()+result.stderr);
 			commands.push(command);
 			event.target.value="";
 			});
