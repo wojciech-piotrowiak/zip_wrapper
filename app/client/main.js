@@ -7,28 +7,6 @@ var counter=0;
 
 Template.hello.events({
 	"keydown input.url": function(event) {
-		if(event.which==38)
-		{
-			var last = commands[commands.length - counter];
-			counter+=1;
-			if(counter>commands.length)
-			{
-				counter=commands.length;
-			}
-			if(last!=undefined)
-			event.target.value=last;
-		}
-		if(event.which==40)
-		{
-			var last = commands[commands.length - counter];
-			counter-=1;
-			if(counter<0)
-			{
-				counter=0;
-		  }
-			if(last!=undefined)
-			event.target.value=last;
-		}
 		if(event.which==13)
 		{
 			counter=0;
@@ -40,15 +18,6 @@ Template.hello.events({
 			event.target.value="";
 			});
 		}
-	},
-
-	"submit .command-run": function (event) {
-		var command = event.target.url.value;
-		Meteor.call('action', command,function(error,result){
-		$('#console').val(result.stdout);
-		});
-		event.target.url.value="";
-		return false;
 	},
 
 	"submit .download": function (event) {
