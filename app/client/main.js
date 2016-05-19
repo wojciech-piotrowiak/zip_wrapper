@@ -4,13 +4,18 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 Calls = new Mongo.Collection('calls');
 
+
+Template.registerHelper("prettifyDate", function(timestamp) {
+    return moment(new Date(timestamp)).fromNow();
+	});
+
 Template.main.onCreated(function bodyOnCreated() {
   Meteor.subscribe('calls');
 });
 
 Template.main.helpers({
 	calls: function () {
-		 return Calls.find({}).count();
+		 return Calls.find({});
 	 }
  });
 

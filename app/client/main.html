@@ -10,5 +10,16 @@
 <ul>
     <li><input class="url" name="url" type="text" /></li>
     <li><textarea id="console" readonly="true"></textarea></li>
-</ul>{{calls}}
+</ul>
+<ul class="calllist">
+     {{#each calls}}
+       {{> request}}
+     {{/each}}
+   </ul>
+</template>
+
+<template name="request">
+<li>
+	<span class="text">{{url}}-{{id}}-{{prettifyDate createdAt}}</span><br/>
+</li>
 </template>
