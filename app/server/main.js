@@ -9,7 +9,7 @@ Meteor.publish('calls', function tasksPublication() {
 
 Meteor.methods({
   	action: function (command) {
- 	var exec = require('sync-exec');
+ 	var exec = Npm.require('sync-exec');
 	return exec(command,{cwd: '/home/wpiotrowiak/wraps'});
 },
 
