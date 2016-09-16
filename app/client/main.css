@@ -1,9 +1,12 @@
 
-.console {
+#console {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
+            width:100%;
+            margin-bottom: 0px;
 }
  li {
    list-style: none;
+    margin-top: 0px;
  }
