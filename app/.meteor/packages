@@ -25,3 +25,4 @@ npm-container
 random@1.0.10
 mrt:moment
 shell-server
+ostrio:meteor-root

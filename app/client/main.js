@@ -28,13 +28,14 @@ Template.main.events({
 
 			var downloadFile='cd '+id+' && wget '+url;
 
-			var prepareZip='zip '+id+' '+id+' && ';
+			var prepareZip='zip -r '+id+' '+id+' && ';
 			prepareZip+='rm -Rf '+id;
 
 			Meteor.call('registerCall', url,id);
 			Meteor.call('action', createDir,output);
 			Meteor.call('action', downloadFile,output);
 			Meteor.call('action', prepareZip,output);
+			event.target.value="";
 		}
 	}
   });
