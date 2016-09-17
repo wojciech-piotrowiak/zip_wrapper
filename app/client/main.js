@@ -31,10 +31,13 @@ Template.main.events({
 			var prepareZip='zip -r '+id+' '+id+' && ';
 			prepareZip+='rm -Rf '+id;
 
+
 			Meteor.call('registerCall', url,id);
 			Meteor.call('action', createDir,output);
 			Meteor.call('action', downloadFile,output);
 			Meteor.call('action', prepareZip,output);
+			Meteor.call('action', 'pwd ',output);
+			Meteor.call('action', 'ls -la ',output);
 			event.target.value="";
 		}
 	}
