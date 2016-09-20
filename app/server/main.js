@@ -11,7 +11,7 @@ Meteor.methods({
 sendToDropbox: function (fileName,token){
   var dbx = new Dropbox({ accessToken: token });
   var fullPath=Meteor.absolutePath+'/public/wraps/'+fileName;
-  fs.readFile(fullPath, 'utf8', function (err, contents) {
+  fs.readFile(fullPath, function (err, contents) {
       if (err) {
         console.log('Error: ', err);
       }
