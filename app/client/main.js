@@ -32,12 +32,14 @@ Template.main.events({
 			prepareZip+='rm -Rf '+id;
 
 
-			Meteor.call('registerCall', url,id);
+			Meteor.call('registerCall', url);
 			Meteor.call('action', createDir,output);
 			Meteor.call('action', downloadFile,output);
 			Meteor.call('action', prepareZip,output);
-			Meteor.call('action', 'pwd ',output);
-			Meteor.call('action', 'ls -la ',output);
+
+      var fileName=id+'.zip';
+      var accessToken=$('#accessToken').val();
+      Meteor.call('sendToDropbox',fileName ,accessToken);
 			event.target.value="";
 		}
 	}

@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "dropbox": "^2.2.1",
     "meteor-node-stubs": "~0.2.0",
     "sync-exec": "^0.6.2"
   }
