@@ -37,6 +37,9 @@ Template.main.events({
 			Meteor.call('action', downloadFile,output);
 			Meteor.call('action', prepareZip,output);
 
+      var moveToTemp='cp '+id+'.zip ../temp';
+      Meteor.call('action', moveToTemp,output);
+
       var fileName=id+'.zip';
       var accessToken=$('#accessToken').val();
       Meteor.call('sendToDropbox',fileName ,accessToken);

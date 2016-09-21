@@ -10,7 +10,7 @@ Meteor.publish('calls', function tasksPublication() {
 Meteor.methods({
 sendToDropbox: function (fileName,token){
   var dbx = new Dropbox({ accessToken: token });
-  var fullPath=Meteor.absolutePath+'/public/wraps/'+fileName;
+  var fullPath=Meteor.absolutePath+'/temp/'+fileName;
   fs.readFile(fullPath, function (err, contents) {
       if (err) {
         console.log('Error: ', err);
@@ -26,7 +26,7 @@ sendToDropbox: function (fileName,token){
     });
 },
 action: function (command) {
-	var path=Meteor.absolutePath+'/public/wraps';
+	var path=Meteor.absolutePath+'/download';
  	var exec = Npm.require('sync-exec');
 	return exec(command,{cwd: path});
 },
