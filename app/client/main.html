@@ -8,8 +8,10 @@
 
 <template name="main">
 <ul>
-    <li>url: <input class="url" name="url" type="text" /></li>
-    <li>dropbox token:<input class="url" id="accessToken" type="text" /></li>
+    <li>url: <input class="url" id="url" type="text" /></li>
+    <li>dropbox token:<input  id="accessToken" type="text" />
+      <button class="actionBtn" title="Get file" >Get File</button>
+    </li>
     <li><textarea id="console" readonly="true"></textarea></li>
 </ul>
 <ul class="calllist">
@@ -21,6 +23,6 @@
 
 <template name="request">
 <li>
-	<span class="text">{{url}}-{{prettifyDate createdAt}}</span><br/>
+	<span class="text">{{url}}-{{id}}-{{prettifyDate createdAt}}</span><br/>
 </li>
 </template>

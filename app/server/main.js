@@ -33,7 +33,7 @@ action: function (command) {
 
 registerCall: function (url,id) {
   Calls.insert({
-    url,
+    url,id,
     createdAt: new Date()
   });
 }
