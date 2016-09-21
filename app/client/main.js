@@ -42,6 +42,7 @@ Template.main.events({
       var accessToken=$('#accessToken').val();
       Meteor.call('sendToDropbox',fileName ,accessToken);
 			event.target.value="";
+      $('#accessToken').val('')
 		}
 	}
   });
